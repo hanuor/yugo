@@ -28,6 +28,10 @@ fun applyActivationFunction(weightedSum: Double): Int{
     }
     return result
 }
-fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double): DoubleArray{
-
+fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double, learningRate: Int): DoubleArray{
+    val adjustedWeights = DoubleArray(weights.size)
+    for (i in weights.indices) {
+        adjustedWeights[i] = learningRate * error * data[i] + weights[i]
+    }
+    return adjustedWeights
 }
