@@ -10,7 +10,7 @@ fun main(args: Array<String>){
             arrayOf(intArrayOf(1, 1), intArrayOf(1))
     )
     val LEARNINGRATE : Double = 0.05
-    val INITIAL_WEIGHTS: DoubleArray = doubleArrayOf(Math.random(), Math.random())
+    var INITIAL_WEIGHTS: DoubleArray = doubleArrayOf(Math.random(), Math.random())
     var epochNumber: Int = 0
     var errorFlag: Boolean = true
     var error: Double = 0.0
@@ -27,6 +27,7 @@ fun main(args: Array<String>){
             }
             adjustedWeights = adjustWeights(data[i][0], INITIAL_WEIGHTS, error, LEARNINGRATE)
     println(" " + error + "    " + adjustedWeights)
+            INITIAL_WEIGHTS = adjustedWeights;
         }
     }
 
