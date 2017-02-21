@@ -12,5 +12,8 @@ fun main(args: Array<String>){
     val LEARNINGRATE : Double = 0.05
     val INITIAL_WEIGHTS: DoubleArray = doubleArrayOf(Math.random(), Math.random())
 
-    
+
+}
+fun calculateWeightedSum(data: IntArray, weights: DoubleArray): Double{
+    return 0.0
 }
