@@ -15,5 +15,14 @@ fun main(args: Array<String>){
 
 }
 fun calculateWeightedSum(data: IntArray, weights: DoubleArray): Double{
+    for (i in data.indices) {
+        
+    }
     return 0.0
+}
+fun applyActivationFunction(weightedSum: Double): Int{
+    return 0
+}
+fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double): DoubleArray{
+
 }
