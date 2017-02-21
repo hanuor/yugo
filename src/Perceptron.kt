@@ -15,13 +15,18 @@ fun main(args: Array<String>){
 
 }
 fun calculateWeightedSum(data: IntArray, weights: DoubleArray): Double{
+    var  weightedSum: Double = 0.0
     for (i in data.indices) {
-        
+        weightedSum  +=   data[i] * weights[i]
     }
-    return 0.0
+    return weightedSum
 }
 fun applyActivationFunction(weightedSum: Double): Int{
-    return 0
+    var result: Int = 0
+    if(weightedSum > 1){
+        result = 1
+    }
+    return result
 }
 fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double): DoubleArray{
 
