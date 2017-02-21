@@ -11,8 +11,20 @@ fun main(args: Array<String>){
     )
     val LEARNINGRATE : Double = 0.05
     val INITIAL_WEIGHTS: DoubleArray = doubleArrayOf(Math.random(), Math.random())
+    var epochNumber: Int = 0
+    val errorFlag: Boolean = true
+    while(errorFlag){
+        print(epochNumber++)
+        for(i in data.indices){
+            val weightedSum: Double = calculateWeightedSum(data[i][0], INITIAL_WEIGHTS )
+            
+        }
+    }
 
 
+}
+fun print(epoch: Int){
+println("w1 " )
 }
 fun calculateWeightedSum(data: IntArray, weights: DoubleArray): Double{
     var  weightedSum: Double = 0.0
