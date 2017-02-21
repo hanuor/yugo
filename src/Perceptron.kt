@@ -12,12 +12,21 @@ fun main(args: Array<String>){
     val LEARNINGRATE : Double = 0.05
     val INITIAL_WEIGHTS: DoubleArray = doubleArrayOf(Math.random(), Math.random())
     var epochNumber: Int = 0
-    val errorFlag: Boolean = true
+    var errorFlag: Boolean = true
+    var error: Double = 0.0
+    var adjustedWeights: DoubleArray
     while(errorFlag){
         print(epochNumber++)
+        errorFlag = false
         for(i in data.indices){
             val weightedSum: Double = calculateWeightedSum(data[i][0], INITIAL_WEIGHTS )
-            
+            val result: Int = applyActivationFunction(weightedSum)
+            error = (data[i][1][0] - result).toDouble()
+            if(error!= 0.0){
+                errorFlag = true
+            }
+            adjustedWeights = adjustWeights(data[i][0], INITIAL_WEIGHTS, error, LEARNINGRATE)
+    println(" " + error + "    " + adjustedWeights)
         }
     }
 
@@ -25,7 +34,7 @@ fun main(args: Array<String>){
 }
 fun print(epoch: Int){
 println("w1 " )
-}
+    }
 fun calculateWeightedSum(data: IntArray, weights: DoubleArray): Double{
     var  weightedSum: Double = 0.0
     for (i in data.indices) {
@@ -40,7 +49,7 @@ fun applyActivationFunction(weightedSum: Double): Int{
     }
     return result
 }
-fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double, learningRate: Int): DoubleArray{
+fun adjustWeights(data: IntArray, weights: DoubleArray, error: Double, learningRate: Double): DoubleArray{
     val adjustedWeights = DoubleArray(weights.size)
     for (i in weights.indices) {
         adjustedWeights[i] = learningRate * error * data[i] + weights[i]
